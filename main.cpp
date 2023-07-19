@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
@@ -28,4 +29,15 @@ void quit()
   IMG_Quit();
 }
 
-int main () {}
+int main (int argc, char *argv[]) {
+  const int SCREEN_WIDTH = 500;
+  const int SCREEN_HEIGHT = 500;
+  init(SCREEN_WIDTH, SCREEN_HEIGHT);
+  
+  std::vector<Planet> planets = {
+    Planet(5.9726e24, vec2(0, 1.496e11), vec2(2.978e4, 0)),  // Earth
+    Planet(1.989e30, vec2(0, 0), vec2(0, 0))                 // Sun
+  };
+
+  return 0;
+}
