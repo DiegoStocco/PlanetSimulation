@@ -9,10 +9,10 @@
 class Planet
 {
   public:
-    Planet(vec2 pos, vec2 vel, vec2 acc) {
-      position = pos;
-      velocity = vel;
-      acceleration = acc;
+    Planet(double massas, vec2 initial_position, vec2 initial_velocity) {
+      mass = massas;
+      position = initial_position;
+      velocity = initial_velocity;
     }
 
     void update(double delta_t, std::vector<Planet> planets) {
