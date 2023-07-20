@@ -3,7 +3,6 @@
 #include <SDL2/SDL.h>
 
 #include "vec2.h"
-#include "texture.h"
 #include "planet.h"
 
 SDL_Renderer* renderer = NULL;
