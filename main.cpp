@@ -12,7 +12,6 @@ SDL_Window* window = NULL;
 void init(const int SCREEN_WIDTH, const int SCREEN_HEIGHT)
 {
   SDL_Init(SDL_INIT_VIDEO);
-  IMG_Init(IMG_INIT_PNG);
   window = SDL_CreateWindow("Pianeti", SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SDL_WINDOW_SHOWN);
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC|SDL_RENDERER_ACCELERATED);
 }
@@ -25,7 +24,6 @@ void quit()
   window = NULL;
 
   SDL_Quit();
-  IMG_Quit();
 }
 
 int main (int argc, char *argv[]) {
