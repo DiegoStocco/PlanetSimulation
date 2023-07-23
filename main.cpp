@@ -5,6 +5,7 @@
 #include "vec2.h"
 #include "planet.h"
 #include "physical_constants.h"
+#include "camera.h"
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
@@ -41,8 +42,10 @@ int main(int argc, char *argv[])
     Planet("Mars", MARS_MASS, 12, 0xff6f6fff, vec2(0, SUN_MARS_MAX_D), vec2(MARS_MIN_SPEED, 0))
   };
 
-  const double scale = 1e9;
-  const vec2 top_left_corner = vec2(-SCREEN_WIDTH/2.0, -SCREEN_HEIGHT/2.0);
+  const double SCALE = 1e9;
+  const vec2 CENTER = vec2(0, 0);
+  Camera cam(renderer, SCREEN_WIDTH, SCREEN_HEIGHT, CENTER, SCALE);
+
   const double delta_t = 10000;
 
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -63,7 +66,7 @@ int main(int argc, char *argv[])
     for(int i = 0; i < planets.size(); i++)
     {
       planets[i].update(delta_t, &planets);
-      planets[i].render(renderer, scale, top_left_corner);
+      planets[i].render(&cam);
     }
     SDL_RenderPresent(renderer);
 

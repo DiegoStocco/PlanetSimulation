@@ -5,6 +5,7 @@
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <vector>
 #include <string>
+#include "camera.h"
 #include "vec2.h"
 #include "physical_constants.h"
 
@@ -36,13 +37,12 @@ class Planet
       position += (velocity * delta_t);
     }
 
-    void render(SDL_Renderer* renderer, double scale, vec2 up_left_corner = vec2(0,0))
+    void render(Camera* cam)
     {
-      vec2 display_position = position / scale;
-      display_position += -up_left_corner;
+      vec2 display_position = cam->world_to_screen(position);
 
-      filledCircleColor(renderer, display_position.x(), display_position.y(), radius, color);
-      aacircleColor(renderer, display_position.x(), display_position.y(), radius, color);
+      filledCircleColor(cam->renderer, display_position.x(), display_position.y(), radius, color);
+      aacircleColor(cam->renderer, display_position.x(), display_position.y(), radius, color);
     }
   
   public:
