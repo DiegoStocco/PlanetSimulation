@@ -4,6 +4,7 @@
 
 #include "vec2.h"
 #include "planet.h"
+#include "physical_constants.h"
 
 SDL_Window* window = NULL;
 SDL_Renderer* renderer = NULL;
@@ -32,12 +33,12 @@ int main(int argc, char *argv[])
   init(SCREEN_WIDTH, SCREEN_HEIGHT);
   
   std::vector<Planet> planets = {
-    Planet("Sun", 1.989e30, 20, 0xffdc13ff, vec2(0, 0), vec2(0, 0)),
-    Planet("Mercury", 3.301e23, 5, 0xfff5d5ff, vec2(0, 5.791e10), vec2(3.886e4, 0)),
-    Planet("Venus", 4.867e24, 7, 0xfff5aaff, vec2(0, 1.082e11), vec2(3.479e4, 0)),
-    Planet("Earth", 5.9726e24, 15, 0x67ff67ff, vec2(0, 1.496e11), vec2(2.929e4, 0)),
-    Planet("Moon", 7.342e22, 3, 0xffffffff, vec2(0, 1.496e11 + 405.5e6), vec2(2.929e4 + 964, 0)),
-    Planet("Mars", 6.417e23, 12, 0xff6f6fff, vec2(0, 2.279e11), vec2(2.1972e4, 0))
+    Planet("Sun", SUN_MASS, 20, 0xffdc13ff, vec2(0, 0), vec2(0, 0)),
+    Planet("Mercury", MERCURY_MASS, 5, 0xfff5d5ff, vec2(0, SUN_MERCURY_MAX_D), vec2(MERCURY_MIN_SPEED, 0)),
+    Planet("Venus", VENUS_MASS, 7, 0xfff5aaff, vec2(0, SUN_VENUS_MAX_D), vec2(VENUS_MIN_SPEED, 0)),
+    Planet("Earth", EARTH_MASS, 15, 0x67ff67ff, vec2(0, SUN_EARTH_MAX_D), vec2(EARTH_MIN_SPEED, 0)),
+    Planet("Moon", MOON_MASS, 3, 0xffffffff, vec2(0, SUN_EARTH_MAX_D + EARTH_MOON_MAX_D), vec2(EARTH_MIN_SPEED + MOON_MIN_SPEED, 0)),
+    Planet("Mars", MARS_MASS, 12, 0xff6f6fff, vec2(0, SUN_MARS_MAX_D), vec2(MARS_MIN_SPEED, 0))
   };
 
   const double scale = 1e9;
