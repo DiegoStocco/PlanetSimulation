@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     Planet("Mercury", 3.301e23, 5, 0xfff5d5ff, vec2(0, 5.791e10), vec2(3.886e4, 0)),
     Planet("Venus", 4.867e24, 7, 0xfff5aaff, vec2(0, 1.082e11), vec2(3.479e4, 0)),
     Planet("Earth", 5.9726e24, 15, 0x67ff67ff, vec2(0, 1.496e11), vec2(2.929e4, 0)),
+    Planet("Moon", 7.342e22, 3, 0xffffffff, vec2(0, 1.496e11 + 405.5e6), vec2(2.929e4 + 964, 0)),
     Planet("Mars", 6.417e23, 12, 0xff6f6fff, vec2(0, 2.279e11), vec2(2.1972e4, 0))
   };
 
