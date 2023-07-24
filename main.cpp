@@ -39,7 +39,11 @@ int main(int argc, char *argv[])
     Planet("Venus", VENUS_MASS, 7, 0xfff5aaff, vec2(0, SUN_VENUS_MAX_D), vec2(VENUS_MIN_SPEED, 0)),
     Planet("Earth", EARTH_MASS, 15, 0x67ff67ff, vec2(0, SUN_EARTH_MAX_D), vec2(EARTH_MIN_SPEED, 0)),
     Planet("Moon", MOON_MASS, 3, 0xffffffff, vec2(0, SUN_EARTH_MAX_D + EARTH_MOON_MAX_D), vec2(EARTH_MIN_SPEED + MOON_MIN_SPEED, 0)),
-    Planet("Mars", MARS_MASS, 12, 0xff6f6fff, vec2(0, SUN_MARS_MAX_D), vec2(MARS_MIN_SPEED, 0))
+    Planet("Mars", MARS_MASS, 12, 0xff6f6fff, vec2(0, SUN_MARS_MAX_D), vec2(MARS_MIN_SPEED, 0)),
+    Planet("Jupiter", JUPITER_MASS, 18, 0xabababff, vec2(0, SUN_JUPITER_MAX_D), vec2(JUPITER_MIN_SPEED, 0)),
+    Planet("Saturn", SATURN_MASS, 16, 0x12ab32ff, vec2(0, SUN_SATURN_MAX_D), vec2(SATURN_MIN_SPEED, 0)),
+    Planet("Uranus", URANUS_MASS, 15, 0xffffffff, vec2(0, SUN_URANUS_MAX_D), vec2(URANUS_MIN_SPEED, 0)),
+    Planet("Neptune", NEPTUNE_MASS, 14, 0xffffffff, vec2(0, SUN_NEPTUNE_MAX_D), vec2(URANUS_MIN_SPEED, 0))
   };
 
   const double SCALE = 1e9;
