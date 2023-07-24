@@ -30,6 +30,13 @@ public:
         return *this;
     }
 
+    vec2& operator-=(const vec2& v)
+    {
+      e[0] -= v.e[0];
+      e[1] -= v.e[1];
+      return *this;
+    }
+
     vec2& operator*=(const double t)
     {
         e[0] *= t;
