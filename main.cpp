@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
+#include <SDL2/SDL_keycode.h>
 
 #include "vec2.h"
 #include "planet.h"
@@ -62,7 +64,23 @@ int main(int argc, char *argv[])
   {
     while(SDL_PollEvent(&event))
     {
-      if(event.type == SDL_QUIT) running = false;
+      switch(event.type) {
+        case SDL_QUIT:
+          running = false;
+          break;
+        case SDL_MOUSEWHEEL:
+          cam.position += 1.5 * vec2(event.wheel.x, -event.wheel.y);
+        case SDL_KEYDOWN:
+          if((event.key.keysym.sym == SDLK_PLUS) || (event.key.keysym.sym == SDLK_KP_PLUS))
+            cam.scale /= 1.3;
+          if((event.key.keysym.sym == SDLK_MINUS) || (event.key.keysym.sym == SDLK_KP_MINUS))
+            cam.scale *= 1.3;
+          if(event.key.keysym.sym == SDLK_r)
+          {
+            cam.scale = SCALE;
+            cam.center_to(CENTER);
+          }
+      }
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
